@@ -1,0 +1,21 @@
+<section>
+    <h2>Upcoming Tasks</h2>
+    <ul class="list-group">
+        @for (item of specialTasks; track $index ; let i = $index ;) {
+            <li class="my-2 p-3 w-50 text-bg-success rounded-1">
+                <ul class="list-group">
+                    <div class="d-flex justify-content-around">
+                        <h4>{{item.date}}</h4>
+                        <span ><i class="fa-solid fa-trash mx-3 text-danger" (click)="deleteSpecialTask(i)"></i></span>
+                    </div>
+                    @for (task of item.task; track $index ; let j = $index;) {
+                        <li class="p-2 text-bg-light my-1 rounded-1 d-flex justify-content-between">{{task.task}} 
+                            <span><i class="fa-solid fa-trash mx-3 text-danger" (click)="deleteSpecialInnerTask(i,j)"></i></span>
+                        </li>
+                    }
+
+                </ul>
+            </li>
+        }
+    </ul>
+</section>

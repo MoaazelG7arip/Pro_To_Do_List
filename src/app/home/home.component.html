@@ -1,0 +1,58 @@
+<section>
+    <div class="tasks">
+        <h2 >Tasks</h2>
+        <ul>
+            @for(task of tasks; track $index) {
+                <li class="d-flex justify-content-between">
+                    <div class="task-val">
+                        <i class="fa-regular fa-circle-check" (click)="checkIt($index)" [ngClass]="{'fa-regular text-dark': !task.check,'fa-solid text-success':task.check}"></i>
+                        <span [ngClass]="{'checked': task.check}">{{task.task}}</span>
+                    </div>
+                    <div class="changes">
+                        <i class="fa-solid fa-square-pen text-primary" (click)="updateTask($index)"></i>
+                        <i class="fa-solid fa-trash mx-3 text-danger" (click)="deleteTask($index)"></i>                    
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="add">
+            <button class="btn btn-success" (click)="addTask()">Add Task</button>
+        </div>
+    </div>
+
+
+
+    <div class="special-tasks my-5">
+        <h2>Today Special Tasks</h2>
+        <ul>
+            @for (item of specialtasks; track $index) {
+                <li class="d-flex justify-content-between">
+                    <div class="task-val">
+                        <i class="fa-regular fa-circle-check" (click)="checkInnerIt($index)" [ngClass]="{'fa-regular text-dark': !item.check,'fa-solid text-success':item.check}"></i>
+                        <span [ngClass]="{'checked': item.check}">{{item.task}}</span>
+                    </div>
+                    <div class="changes">
+                        <i class="fa-solid fa-trash mx-3 text-danger" (click)="deleteSpecialInnerTask($index)"></i>                    
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="add">
+            <button class="btn btn-success"(click)="addSpecialTask()">Add Task In Special Day</button>
+        </div>
+    </div>
+</section>
+
+
+@switch (valRequired) {
+    @case ('addtask') {
+        <app-add-task (cancelAddTask)="cancelAdd($event)"></app-add-task>
+    }
+    @case ('updatetask') {
+        <app-update-task (cancelUpdateTask)="cancelAdd($event)" [getTaskIndex]="updatingTaskIndex"></app-update-task>
+    }
+    @case ('addspecialtask') {
+        <app-add-special-task (cancelAddTask)="cancelAdd($event)"></app-add-special-task>
+    }
+}
+

@@ -1,0 +1,33 @@
+h2{
+    font-weight: 500;
+    font-size: 2rem;
+}
+ul{
+    margin-block: 20px;
+}
+ul li{
+    padding:10px;
+    margin-block: 10px;
+    background-color: #eee;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    
+    text-indent: 5px;
+    width: 600px;
+}
+ul li span{
+    margin-left: 10px;
+}
+.changes i{
+    cursor: pointer;
+}
+.checked{
+    color: #aaa;
+    text-decoration: line-through;
+}
+.task-val i{
+    cursor: pointer;
+}

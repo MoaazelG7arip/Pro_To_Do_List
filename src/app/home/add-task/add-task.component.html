@@ -1,0 +1,10 @@
+<section>
+    <div class="content">
+        <div class="icon-close" (click)="closeTask()">X</div>
+        <div class="add">
+            <label for="addtask" class="form-label">Add Task</label>
+            <input type="text" class="form-control" id="addtask" #task  (keyup.enter)="addTask()">
+            <button type="button" class="btn btn-primary"(click)="addTask()">Add</button>
+        </div>
+    </div>
+</section>
